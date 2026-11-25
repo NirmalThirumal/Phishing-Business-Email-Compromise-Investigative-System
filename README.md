@@ -1,26 +1,27 @@
-Here is a complete `README.md` ready to save directly to `C:\Projects\Phishing & Business Email Compromise Investigative System\README.md`.
-
 ```markdown
 # PhishGuard AI — Phishing & Business Email Compromise (BEC) Investigative System
+
+![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?logo=fastapi&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-Multi--Agent-1C3C3C)
+![React](https://img.shields.io/badge/React-SOC%20Workbench-61DAFB?logo=react&logoColor=black)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-Threat%20Intel%20RAG-FF6F00)
 
 **PhishGuard AI** is a full-stack Security Operations Center (SOC) investigation workbench built to triage, investigate, and explain phishing and Business Email Compromise (BEC) emails. It combines a **Dual-ML inference engine**, a **LangGraph multi-agent pipeline**, a **ChromaDB Threat Intelligence RAG knowledge base**, **real-time Gmail IMAP monitoring**, and a **React SOC Workbench** with Human-in-the-Loop (HITL) analyst feedback.
 
 ---
 
-## Key Features
+## SOC Workbench Preview
 
-* **MIME & Header Forensics Parser (`backend/app/parsers/email_parser.py`)**: Extracts sender and display names, `Reply-To` and `Return-Path` mismatches, SPF/DKIM/DMARC authentication statuses, embedded URLs (raw IP URLs, URL shorteners, and HTML anchor-text mismatches), and attachment metadata with SHA-256 hashes.
-* **Dual-ML Triage Engine (`backend/app/ml/`)**:
-  * **Track A (NLP Classifier)**: TF-IDF + XGBoost model trained on a merged Apache SpamAssassin and BEC dataset.
-  * **Track B (Behavioral Anomaly Detector)**: `IsolationForest` + `StandardScaler` pipeline trained on 12 structural, header, URL, and urgency features extracted from 1,500 real emails.
-* **LangGraph Multi-Agent Pipeline (`backend/app/agents/graph.py` & `tools.py`)**:
-  * **Email & Header Analysis Agent**: Audits SPF/DKIM/DMARC, header mismatches, display-name spoofing, and high-risk attachments.
-  * **URL & Domain Investigation Agent**: Evaluates URLs and domains using Google Safe Browsing, VirusTotal, URLhaus, WHOIS domain age, IP/shortener detection, and anchor-text mismatch checks.
-  * **Identity & Impersonation Agent**: Checks senders and lookalike domains against the internal corporate directory and WHOIS domain age.
-  * **Threat Intelligence RAG Agent**: Retrieves relevant MITRE ATT&CK entries, CISA advisories, and internal security policies from ChromaDB (`rag_docs/`).
-  * **Risk Assessment & Reporting Agent**: Synthesizes ML scores and agent findings into a structured `FinalVerdict` using Gemini with a deterministic fallback synthesizer.
-* **Real-Time Gmail IMAP Monitor (`backend/app/services/realtime_monitor.py`)**: Polls `INBOX` and `[Gmail]/Spam` on a configurable schedule, investigates newly arrived emails automatically, and records results.
-* **React SOC Workbench (`frontend/`)**: Branded React + Vite dashboard featuring an investigation queue, risk score and NLP probability readouts, verified vs. heuristic indicators, multi-agent cards, and a Human-in-the-Loop analyst decision panel persisted to local JSON (`data/processed/investigations_store.json`).
+### 1. Business Email Compromise (BEC) Investigation (`Risk Score: 85/100`)
+Detects executive display-name impersonation, lookalike domains (`acmec0rp.com`), `Reply-To` diversion, and DMARC alignment issues, grounded with MITRE ATT&CK, CISA advisories, and internal corporate wire-transfer policies.
+
+![PhishGuard AI BEC Investigation Workbench](docs/images/bec-investigation-workbench.png)
+
+### 2. Legitimate Email Triage (`Risk Score: 12/100`)
+Validates SPF/DKIM/DMARC alignment, checks sender domain authenticity, and provides transparent multi-agent explanations with Human-in-the-Loop analyst controls.
+
+![PhishGuard AI Legitimate Email Triage](docs/images/legitimate-email-triage.png)
 
 ---
 
@@ -52,6 +53,27 @@ Agent    Agent                        │
                             React SOC Workbench
 
 ```
+
+---
+
+## Key Features
+
+* **MIME & Header Forensics Parser (`backend/app/parsers/email_parser.py`)**: Extracts sender and display names, `Reply-To` and `Return-Path` mismatches, SPF/DKIM/DMARC authentication statuses, embedded URLs (raw IP URLs, URL shorteners, and HTML anchor-text mismatches), and attachment metadata with SHA-256 hashes.
+* **Dual-ML Triage Engine (`backend/app/ml/`)**:
+* **Track A (NLP Classifier)**: TF-IDF + XGBoost model trained on a merged Apache SpamAssassin and BEC dataset.
+* **Track B (Behavioral Anomaly Detector)**: `IsolationForest` + `StandardScaler` pipeline trained on 12 structural, header, URL, and urgency features extracted from 1,500 real emails.
+
+
+* **LangGraph Multi-Agent Pipeline (`backend/app/agents/graph.py` & `tools.py`)**:
+* **Email & Header Analysis Agent**: Audits SPF/DKIM/DMARC, header mismatches, display-name spoofing, and high-risk attachments.
+* **URL & Domain Investigation Agent**: Evaluates URLs and domains using Google Safe Browsing, VirusTotal, URLhaus, WHOIS domain age, IP/shortener detection, and anchor-text mismatch checks.
+* **Identity & Impersonation Agent**: Checks senders and lookalike domains against the internal corporate directory and WHOIS domain age.
+* **Threat Intelligence RAG Agent**: Retrieves relevant MITRE ATT&CK entries, CISA advisories, and internal security policies from ChromaDB (`rag_docs/`).
+* **Risk Assessment & Reporting Agent**: Synthesizes ML scores and agent findings into a structured `FinalVerdict` using Gemini with a deterministic fallback synthesizer.
+
+
+* **Real-Time Gmail IMAP Monitor (`backend/app/services/realtime_monitor.py`)**: Polls `INBOX` and `[Gmail]/Spam` on a configurable schedule, investigates newly arrived emails automatically, and records results.
+* **React SOC Workbench (`frontend/`)**: Branded React + Vite dashboard featuring an investigation queue, risk score and NLP probability readouts, verified vs. heuristic indicators, multi-agent cards, and a Human-in-the-Loop analyst decision panel persisted to local JSON (`data/processed/investigations_store.json`).
 
 ---
 
@@ -98,6 +120,8 @@ Phishing & Business Email Compromise Investigative System/
 │   ├── processed/                     # Trained models, corpus, JSON store & benchmark report
 │   ├── raw/                           # Raw email datasets (e.g., easy_ham)
 │   └── sample_emls/                   # Sample .eml test files
+├── docs/
+│   └── images/                        # Workbench screenshots for documentation
 ├── frontend/
 │   ├── public/
 │   │   └── logo.svg                   # PhishGuard AI brand mark
@@ -118,11 +142,11 @@ Phishing & Business Email Compromise Investigative System/
 
 ### 1. Backend Setup
 
-From the project root (`C:\Projects\Phishing & Business Email Compromise Investigative System`), create and activate the virtual environment and install Python dependencies:
+From the project root, create and activate a virtual environment and install Python dependencies:
 
-```cmd
+```bash
 python -m venv venv
-venv\Scripts\activate.bat
+venv\Scripts\activate
 pip install -r backend\requirements.txt
 
 ```
@@ -144,7 +168,7 @@ IMAP_APP_PASSWORD=your_gmail_app_password
 
 ### 2. Frontend Setup
 
-```cmd
+```bash
 cd frontend
 npm install
 
@@ -154,17 +178,19 @@ npm install
 
 ## Running the Application
 
+### Option A: Local Development
+
 Run each process in its own terminal from the project root:
 
 1. **Start the FastAPI Backend (`http://127.0.0.1:8000`)**:
-```cmd
+```bash
 uvicorn app.main:app --app-dir backend --reload --port 8000
 
 ```
 
 
 2. **Start the React SOC Workbench (`http://localhost:5173`)**:
-```cmd
+```bash
 cd frontend
 npm run dev
 
@@ -172,12 +198,19 @@ npm run dev
 
 
 3. **(Optional) Start the Real-Time Gmail IMAP Monitor**:
-```cmd
+```bash
 python backend\app\services\realtime_monitor.py
 
 ```
 
 
+
+### Option B: Docker Compose
+
+```bash
+docker compose up --build
+
+```
 
 ---
 
@@ -185,14 +218,14 @@ python backend\app\services\realtime_monitor.py
 
 ### Train `IsolationForest` on Real Emails
 
-```cmd
+```bash
 python backend\app\ml\train_isolation_forest_real.py
 
 ```
 
 ### Run Component & End-to-End Evaluation
 
-```cmd
+```bash
 python backend\evaluate_components.py
 
 ```
