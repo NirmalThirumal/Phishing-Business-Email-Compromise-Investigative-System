@@ -1,0 +1,53 @@
+{
+  "parser": {
+    "component": "1. Email Parsing & Feature Engine",
+    "extraction_accuracy_pct": 100.0,
+    "assertions_passed": "16/16",
+    "avg_latency_ms": 13.335
+  },
+  "ml_models": {
+    "track_a_xgboost_nlp": {
+      "test_samples": 680,
+      "accuracy_pct": 97.79,
+      "precision_pct": 99.4,
+      "recall_pct": 92.22,
+      "f1_score_pct": 95.68,
+      "roc_auc": 0.9965,
+      "false_positive_rate_pct": 0.2,
+      "avg_latency_ms": 0.2883
+    },
+    "dual_ml_combined_triage": {
+      "eval_emails": 8,
+      "accuracy_pct": 75.0,
+      "precision_pct": 100.0,
+      "recall_pct": 60.0,
+      "f1_score_pct": 75.0,
+      "isolation_forest_roc_auc": 0.8,
+      "avg_latency_ms": 54.32
+    }
+  },
+  "rag_knowledge_base": {
+    "component": "3. Threat Intel RAG Knowledge Base (ChromaDB)",
+    "queries_evaluated": 4,
+    "precision_at_3_pct": 75.0,
+    "recall_at_3_pct": 100.0,
+    "mrr": 1.0,
+    "avg_latency_ms": 26.1
+  },
+  "agents_and_pipeline": {
+    "specialized_agents_accuracy": {
+      "email_header_agent_pct": 87.5,
+      "url_domain_agent_pct": 100.0,
+      "identity_impersonation_agent_pct": 75.0
+    },
+    "end_to_end_pipeline": {
+      "multiclass_accuracy_pct": 100.0,
+      "multiclass_macro_f1_pct": 100.0,
+      "threat_detection_precision_pct": 100.0,
+      "threat_detection_recall_pct": 100.0,
+      "threat_detection_f1_pct": 100.0,
+      "false_positive_rate_pct": 0.0,
+      "avg_e2e_latency_ms": 4969.59
+    }
+  }
+}

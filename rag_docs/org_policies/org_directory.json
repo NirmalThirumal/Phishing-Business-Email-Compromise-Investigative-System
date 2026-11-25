@@ -1,0 +1,40 @@
+{
+  "organization_name": "AcmeCorp",
+  "official_domains": ["acmecorp.com"],
+  "executives": [
+    {
+      "name": "Vikram Mehta",
+      "title": "Chief Executive Officer (CEO)",
+      "email": "vikram.mehta@acmecorp.com",
+      "department": "Executive Leadership"
+    },
+    {
+      "name": "Ananya Nair",
+      "title": "Chief Financial Officer (CFO)",
+      "email": "ananya.nair@acmecorp.com",
+      "department": "Finance"
+    },
+    {
+      "name": "Priya Sharma",
+      "title": "Senior Accounts Payable Manager",
+      "email": "priya.sharma@acmecorp.com",
+      "department": "Finance"
+    },
+    {
+      "name": "Rohan Deshmukh",
+      "title": "Chief Information Security Officer (CISO)",
+      "email": "rohan.deshmukh@acmecorp.com",
+      "department": "Information Security"
+    }
+  ],
+  "approved_vendors": [
+    {
+      "vendor_name": "Apex Legal Partners LLP",
+      "official_domain": "apexlegal.com"
+    },
+    {
+      "vendor_name": "CloudScale Infrastructure Ltd",
+      "official_domain": "cloudscale.io"
+    }
+  ]
+}

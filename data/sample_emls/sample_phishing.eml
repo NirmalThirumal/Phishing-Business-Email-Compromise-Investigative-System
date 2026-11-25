@@ -1,0 +1,17 @@
+From: "Microsoft 365 Security <support@microsoft.com>" <alert@office365-verify-login.com>
+Reply-To: harvest-team@external-mail-drop.net
+To: employee@acmecorp.com
+Subject: URGENT: Your Office 365 Password Expires in 2 Hours
+Date: Tue, 24 Nov 2026 09:15:00 +0530
+Authentication-Results: mx.acmecorp.com; spf=fail; dkim=fail; dmarc=fail
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+  <body>
+    <p>Dear User,</p>
+    <p>We detected unusual sign-in activity on your corporate mailbox. Your account will be suspended unless you verify your credentials immediately.</p>
+    <p><a href="http://198.51.100.42/auth/login?user=employee">https://login.microsoftonline.com/verify</a></p>
+    <p>IT Helpdesk</p>
+  </body>
+</html>

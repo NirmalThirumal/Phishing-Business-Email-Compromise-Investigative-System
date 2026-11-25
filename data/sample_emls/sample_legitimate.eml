@@ -1,0 +1,30 @@
+Return-Path: <rahul.verma@acmecorp.com>
+Delivered-To: engineering@acmecorp.com
+Received: from mail.acmecorp.com (10.24.12.5)
+        by mx.acmecorp.com with ESMTPS id 55019D
+        for <engineering@acmecorp.com>; Tue, 24 Nov 2026 09:30:00 +0530
+Authentication-Results: mx.acmecorp.com;
+        spf=pass smtp.mailfrom=rahul.verma@acmecorp.com;
+        dkim=pass header.d=acmecorp.com;
+        dmarc=pass header.from=acmecorp.com
+From: "Rahul Verma" <rahul.verma@acmecorp.com>
+To: engineering@acmecorp.com
+Subject: Notes from Q4 Architecture Sync & Sprint Planning
+Date: Tue, 24 Nov 2026 09:29:55 +0530
+Message-ID: <20261124092955.55019@acmecorp.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Hi Team,
+
+Thanks everyone for joining this morning's Q4 architecture review. Here is a quick recap of our action items for Sprint 14:
+
+1. Finalize API rate-limiting thresholds on the staging gateway by Thursday.
+2. Complete unit test coverage for the telemetry ingestion pipeline.
+3. Share feedback on the updated deployment runbook before Friday's standup.
+
+Let me know if you have any questions or blockers before tomorrow's sync.
+
+Best regards,
+Rahul Verma
+Principal Systems Architect | AcmeCorp
