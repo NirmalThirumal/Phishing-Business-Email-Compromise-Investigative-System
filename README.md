@@ -16,12 +16,12 @@
 ### 1. Business Email Compromise (BEC) Investigation (`Risk Score: 85/100`)
 Detects executive display-name impersonation, lookalike domains (`acmec0rp.com`), `Reply-To` diversion, and DMARC alignment issues, grounded with MITRE ATT&CK, CISA advisories, and internal corporate wire-transfer policies.
 
-![PhishGuard AI BEC Investigation Workbench](docs/images/bec-investigation-workbench.png)
+![PhishGuard AI BEC Investigation Workbench](https://raw.githubusercontent.com/NirmalThirumal/Phishing-Business-Email-Compromise-Investigative-System/main/docs/images/bec-investigation-workbench.png)
 
 ### 2. Legitimate Email Triage (`Risk Score: 12/100`)
 Validates SPF/DKIM/DMARC alignment, checks sender domain authenticity, and provides transparent multi-agent explanations with Human-in-the-Loop analyst controls.
 
-![PhishGuard AI Legitimate Email Triage](docs/images/legitimate-email-triage.png)
+![PhishGuard AI Legitimate Email Triage](https://raw.githubusercontent.com/NirmalThirumal/Phishing-Business-Email-Compromise-Investigative-System/main/docs/images/legitimate-email-triage.png)
 
 ---
 
