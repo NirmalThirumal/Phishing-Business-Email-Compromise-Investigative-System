@@ -1,4 +1,3 @@
-```markdown
 # PhishGuard AI — Phishing & Business Email Compromise (BEC) Investigative System
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?logo=python&logoColor=white)
@@ -246,7 +245,3 @@ Benchmark summary (`data/processed/component_evaluation_report.json`):
 ## Disclaimer
 
 PhishGuard AI is built for defensive security analysis, SOC triage assistance, and educational or research use. Always perform human SOC analyst verification before taking final containment actions on live email traffic.
-
-```
-
-```
